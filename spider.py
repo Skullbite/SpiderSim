@@ -16,7 +16,8 @@ spood.responses = [
                     "oh bOi",
                     "no", 
                     "yes", 
-                    "maybe"
+                    "maybe",
+                    "how old are u 😄"
                   ]
 
 @spood.event
