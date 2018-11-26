@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+import os
 
 def = ["spider ", "Spider "]
 spood = commands.Bot(command_prefix=commands.when_mentioned_or(*def))
@@ -34,6 +35,6 @@ async def on_ready():
 
 
 print("am loading gimme a bit.")
-spood.run(os.eviron["TOKEN"]) 
+spood.run(os.environ["TOKEN"], restart=True) 
     
     
