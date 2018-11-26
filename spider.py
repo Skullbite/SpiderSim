@@ -56,6 +56,7 @@ async def help(ctx):
 async def source(ctx):
     """Curious about where the hell i came from?"""
     await ctx.send("Heres my github, enjoy nerd\nhttps://github.com/Skullbite/SpiderSim")
+
 @spood.command()
 @commands.guild_only()
 async def server(ctx):
@@ -80,7 +81,7 @@ async def ping(ctx):
     then = time.monotonic()
     
     wew = await ctx.send("fine nerd")
-    now = round((then - time.monotonic()) * 1000)
+    now = round((time.monotonic() - then) * 1000)
     await wew.edit(content=f"pong. `{now}ms`")
     
 
