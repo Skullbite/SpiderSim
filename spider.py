@@ -5,6 +5,7 @@ import random
 
 prefixes = ["spider ", "Spider "]
 spood = commands.Bot(command_prefix=commands.when_mentioned_or(*prefixes))
+spood.remove_command("help")
 spood.responses = [
                     "henlo", 
                     "is joke", 
