@@ -14,6 +14,7 @@ spood.responses = [
                     "stop talking about it please", 
                     "i'm not golfing", 
                     "lul", 
+                    "*reacts with weeb emote*",
                     "<:zoomeyes:390046883281633290>", 
                     "that is the essential question",
                     "is this drama", 
