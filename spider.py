@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 import os
 import random
+import time
 
 prefixes = ["spider ", "Spider "]
 spood = commands.Bot(command_prefix=commands.when_mentioned_or(*prefixes))
@@ -72,6 +73,16 @@ async def server(ctx):
         embed.add_field(name="Region", value=ctx.guild.region, inline=True)
         embed.add_field(name="Emojis", value=" ".join([f"<:{x.name}:{x.id}>" for x in ctx.guild.emojis if not x.animated]) + " " + " ".join([f"<a:{x.name}:{x.id}>" for x in ctx.guild.emojis if x.animated]))
         await ctx.send(content="", embed=embed)
+
+@spood.command()
+async def ping(ctx):
+    """pong, you skid."""
+    then = time.monotonic()
+    
+    wew = await ctx.send("fine nerd")
+    now = round((then - time.montonic()) * 1000)
+    await wew.edit(content=f"pong. `{now}ms`")
+    
 
 async def on_command_error(ctx, err):
     if isinstance(err, errors.NoPrivateMessage):
