@@ -80,7 +80,7 @@ async def ping(ctx):
     then = time.monotonic()
     
     wew = await ctx.send("fine nerd")
-    now = round((then - time.montonic()) * 1000)
+    now = round((then - time.monotonic()) * 1000)
     await wew.edit(content=f"pong. `{now}ms`")
     
 
