@@ -39,6 +39,21 @@ async def on_message(msg):
 async def on_ready():
     print("Fine i'll do it.")
 
+
+@spood.command()
+async def help(ctx):
+    skull = spood.get_user(158750488563679232)
+    em = discord.Embed(title=f"sup {ctx.author.name}? it's me, Spider.", description="\n".join([f"`{cmd.name}` - {cmd.help}" for cmd in spood.commands]) + "\n or you could talk to me by saying `spider <something here>`", color=discord.Color.red())
+    em.set_thumbnail(url=spood.user.avatar_url_as(format="png"))
+    em.set_footer(text=f"Owned by {skull}", icon_url=skull.avatar_url_as(format="png"))
+    
+    await ctx.send(embed=em)
+
+
+@spood.command()
+async def source(ctx):
+    """Curious about where the hell i came from?"""
+    await ctx.send("Heres my github, enjoy nerd\nhttps://github.com/Skullbite/SpiderSim")
 @spood.command()
 @commands.guild_only()
 async def server(ctx):
