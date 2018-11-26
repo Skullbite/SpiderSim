@@ -4,7 +4,7 @@ import os
 import random
 
 prefixes = ["spider ", "Spider "]
-spood = commands.Bot(command_prefix=commands.when_mentioned_or(*def))
+spood = commands.Bot(command_prefix=commands.when_mentioned_or(*prefixes))
 spood.responses = [
                     "henlo", 
                     "is joke", 
