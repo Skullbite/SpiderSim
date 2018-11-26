@@ -71,7 +71,6 @@ async def server(ctx):
         embed.add_field(name="Owner", value=ctx.guild.owner, inline=True)
         embed.add_field(name="Region", value=ctx.guild.region, inline=True)
         embed.add_field(name="Emojis", value=" ".join([f"<:{x.name}:{x.id}>" for x in ctx.guild.emojis if not x.animated]) + " " + " ".join([f"<a:{x.name}:{x.id}>" for x in ctx.guild.emojis if x.animated]))
-        embed.add_field(name="Created", value=default.date(ctx.guild.created_at), inline=True)
         await ctx.send(content="", embed=embed)
 
 async def on_command_error(ctx, err):
