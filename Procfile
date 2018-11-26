@@ -1,1 +1,1 @@
-worker: python3.6 spider.py
+worker: python spider.py
