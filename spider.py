@@ -1,9 +1,9 @@
 import discord
 from discord.ext import commands
 import os
-import randim
+import random
 
-def = ["spider ", "Spider "]
+prefixes = ["spider ", "Spider "]
 spood = commands.Bot(command_prefix=commands.when_mentioned_or(*def))
 spood.responses = [
                     "henlo", 
@@ -33,10 +33,10 @@ async def on_message(msg):
 
 @spood.event
 async def on_ready():
-    print("Am ready to do stuff")
+    print("Fine i'll do it.")
 
 
-print("am loading gimme a bit.")
+print("What do you want.")
 spood.run(os.environ["TOKEN"], restart=True) 
     
     
