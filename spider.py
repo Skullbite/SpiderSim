@@ -39,12 +39,14 @@ spood.responses = [
 async def on_message(msg):
     wew = await spood.get_context(msg)
     if msg.content.startswith("spider ") or msg.content.startswith("Spider "):
-        if not wew.command:
-            await msg.channel.send(random.choice(spood.responses).format(msg.author))
+        if not msg.author.bot:
+            if not wew.command:
+                await msg.channel.send(random.choice(spood.responses).format(msg.author))
+            else:
+                await spood.process_commands(msg)
         else:
-            await spood.process_commands(msg)
-    else:
-        await spood.process_commands(msg)
+            return
+
 
 
 @spood.event
