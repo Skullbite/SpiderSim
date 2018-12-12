@@ -4,7 +4,7 @@ import os
 import random
 import time
 
-prefixes = ["spider ", "Spider "]
+prefixes = ["spider ", "Spider ", "daddy ", "Daddy "]
 spood = commands.Bot(command_prefix=commands.when_mentioned_or(*prefixes))
 spood.remove_command("help")
 spood.responses = [
