@@ -26,6 +26,7 @@ spood.responses = [
                     "Check in <#325648177178869760> idk",
                     "w0t",
                     "i see lol",
+                    "lol sure.",
                     "this isnt the mee6 support server",
                     "java >>> *",
                     "doesn't everyone?",
@@ -38,7 +39,7 @@ spood.responses = [
 @spood.event
 async def on_message(msg):
     wew = await spood.get_context(msg)
-    if msg.content.startswith("spider ") or msg.content.startswith("Spider "):
+    if msg.content.startswith("spider ") or msg.content.startswith("Spider ") or msg.content.startswith("Daddy ") or msg.content.startswith("daddy "):
         if not msg.author.bot:
             if not wew.command:
                 await msg.channel.send(random.choice(spood.responses).format(msg.author))
