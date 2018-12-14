@@ -52,7 +52,8 @@ async def on_message(msg):
 
 @spood.event
 async def on_ready():
-    print("Fine i'll do it.")
+    print("Fine i'll get up..")
+    print(f"i'm in {len(spood.guilds)}")
 
 
 @spood.command()
@@ -102,7 +103,7 @@ async def on_command_error(ctx, err):
     if isinstance(err, errors.NoPrivateMessage):
         await ctx.send("This command can't be used in dms, sowwy.")
 
-print("What do you want.")
+print("Lemme sleep some more...")
 spood.run(os.environ["TOKEN"], restart=True) 
     
     
