@@ -73,11 +73,11 @@ async def source(ctx):
     """Curious about where the hell i came from?"""
     await ctx.send("Heres my github, enjoy nerd\nhttps://github.com/Skullbite/SpiderSim")
     
-def is_owner(ctx):
-    return ctx.author.id == 158750488563679232
+#def is_owner(ctx):
+ #   return ctx.author.id == 158750488563679232
   
 @spood.command(aliases=["e", "ev"])
-@spood.check(is_owner)
+@spood.is_owner()
 async def eval(ctx, *, coolcode):
     """A real cool eval command"""
     values = {"spood": spood, "ctx": ctx, "_": spood.last}
