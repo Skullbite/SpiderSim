@@ -35,6 +35,7 @@ spood.responses = [
                     "Haha funny jokes",
                     "fucking hell"
                   ]
+spood.last = None
 
 @spood.event
 async def on_message(msg):
@@ -59,7 +60,7 @@ async def on_ready():
 @spood.command()
 async def help(ctx):
     skull = spood.get_user(158750488563679232)
-    em = discord.Embed(title=f"sup {ctx.author.name}? it's me, Spider.", description="\n".join([f"`{cmd.name}` - {cmd.help}" for cmd in spood.commands]) + "\n or you could talk to me by saying `spider <something here>`", color=discord.Color.red())
+    em = discord.Embed(title=f"sup {ctx.author.name}? it's me, Spider.", description="\n".join([f"`{cmd.name}` - {cmd.help}" for cmd in spood.commands if not cmd.name == "eval"]) + "\n or you could talk to me by saying `spider <something here>`", color=discord.Color.red())
     em.set_thumbnail(url=spood.user.avatar_url_as(format="png"))
     em.set_footer(text=f"Owned by {skull}", icon_url=skull.avatar_url_as(format="png"))
     
@@ -71,6 +72,23 @@ async def source(ctx):
     """Curious about where the hell i came from?"""
     await ctx.send("Heres my github, enjoy nerd\nhttps://github.com/Skullbite/SpiderSim")
 
+@spood.command(aliases=["e", "ev"])
+async def eval(ctx, *, coolcode):
+    """A real cool eval command"""
+    values = {"spood": spood, "ctx": ctx, "_": spood.last}
+    wew = discord.Embed()
+    try:
+      succ = eval(coolcode, values)
+      wew.title = "Hey it worked"
+      wew.color = discord.Color.green()
+      wew.description = str(succ)
+    except Exception as e:
+      wew.title = "I fucked"
+      wew.color = discord.Color.red()
+      wew.description = str(e)
+      
+    await ctx.send(embed=wew)
+      
 @spood.command()
 @commands.guild_only()
 async def server(ctx):
