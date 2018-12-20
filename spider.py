@@ -82,14 +82,14 @@ async def eval(ctx, *, coolcode):
     """A real cool eval command"""
     if not ctx.author.id == 158750488563679232:
         return await ctx.send("Who the hell are you?")
-    values = {"spood": spood, "ctx": ctx, "_": spood.last}
+    values = {"spood": spood, "ctx": ctx}
     wew = discord.Embed()
     try:
       succ = eval(coolcode, values)
       wew.title = "Hey it worked"
       wew.color = discord.Color.green()
       wew.description = str(succ)
-      spood.last = succ
+      #spood.last = succ
     except Exception as e:
       wew.title = "I fucked"
       wew.color = discord.Color.red()
