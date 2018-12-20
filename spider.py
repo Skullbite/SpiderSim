@@ -3,7 +3,7 @@ from discord.ext import commands
 import os
 import random
 import time
-from spoodstuff import checks
+#from spoodstuff import checks
 
 prefixes = ["spider ", "Spider ", "daddy ", "Daddy "]
 spood = commands.Bot(command_prefix=commands.when_mentioned_or(*prefixes))
@@ -77,9 +77,11 @@ async def source(ctx):
 
   
 @spood.command(aliases=["e", "ev"])
-@spood.check(checks.is_owner)
+#@spood.check(checks.is_owner)
 async def eval(ctx, *, coolcode):
     """A real cool eval command"""
+    if not ctx.author.id == 158750488563679232:
+        return await ctx.send("Who the hell are you?")
     values = {"spood": spood, "ctx": ctx, "_": spood.last}
     wew = discord.Embed()
     try:
