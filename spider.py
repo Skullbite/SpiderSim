@@ -3,6 +3,7 @@ from discord.ext import commands
 import os
 import random
 import time
+from spoodstuff import checks
 
 prefixes = ["spider ", "Spider ", "daddy ", "Daddy "]
 spood = commands.Bot(command_prefix=commands.when_mentioned_or(*prefixes))
@@ -73,11 +74,10 @@ async def source(ctx):
     """Curious about where the hell i came from?"""
     await ctx.send("Heres my github, enjoy nerd\nhttps://github.com/Skullbite/SpiderSim")
     
-#def is_owner(ctx):
- #   return ctx.author.id == 158750488563679232
+
   
 @spood.command(aliases=["e", "ev"])
-@spood.is_owner()
+@spood.check(checks.is_owner)
 async def eval(ctx, *, coolcode):
     """A real cool eval command"""
     values = {"spood": spood, "ctx": ctx, "_": spood.last}
