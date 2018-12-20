@@ -54,7 +54,7 @@ async def on_message(msg):
 @spood.event
 async def on_ready():
     print("Fine i'll get up..")
-    print(f"i'm in {len(spood.guilds)}")
+    print(f"i'm in {len(spood.guilds)} servers")
 
 
 @spood.command()
@@ -67,12 +67,17 @@ async def help(ctx):
     await ctx.send(embed=em)
 
 
+
 @spood.command()
 async def source(ctx):
     """Curious about where the hell i came from?"""
     await ctx.send("Heres my github, enjoy nerd\nhttps://github.com/Skullbite/SpiderSim")
-
+    
+def is_owner(ctx):
+    return ctx.author.id == 158750488563679232
+  
 @spood.command(aliases=["e", "ev"])
+@spood.check(is_owner)
 async def eval(ctx, *, coolcode):
     """A real cool eval command"""
     values = {"spood": spood, "ctx": ctx, "_": spood.last}
@@ -82,6 +87,7 @@ async def eval(ctx, *, coolcode):
       wew.title = "Hey it worked"
       wew.color = discord.Color.green()
       wew.description = str(succ)
+      spood.last = succ
     except Exception as e:
       wew.title = "I fucked"
       wew.color = discord.Color.red()
@@ -120,6 +126,8 @@ async def ping(ctx):
 async def on_command_error(ctx, err):
     if isinstance(err, errors.NoPrivateMessage):
         await ctx.send("This command can't be used in dms, sowwy.")
+    elif isinstance(err, errors.CheckFailure):
+        await ctx.send("Who the hell are you?")
 
 print("Lemme sleep some more...")
 spood.run(os.environ["TOKEN"], restart=True) 
