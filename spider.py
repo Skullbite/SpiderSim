@@ -77,19 +77,19 @@ async def source(ctx):
 
   
 @spood.command(aliases=["e", "ev"])
-#@spood.check(checks.is_owner)
-async def eval(ctx, *, coolcode):
+@commands.is_owner()
+async def eval(ctx, *, code):
     """A real cool eval command"""
     if not ctx.author.id == 158750488563679232:
         return await ctx.send("Who the hell are you?")
-    values = {"spood": spood, "ctx": ctx}
+    env = {"spood": spood, "ctx": ctx}
     wew = discord.Embed()
     try:
-      succ = eval(coolcode, values)
+      succ = eval(code, env)
       wew.title = "Hey it worked"
       wew.color = discord.Color.green()
       wew.description = str(succ)
-      #spood.last = succ
+      spood.last = succ
     except Exception as e:
       wew.title = "I fucked"
       wew.color = discord.Color.red()
