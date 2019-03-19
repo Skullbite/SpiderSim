@@ -13,7 +13,7 @@ spood.responses = [
                     "is joke", 
                     "a", 
                     "stop talking about it please", 
-                    "i'm not golfing", 
+                    "i'm not lurking", 
                     "lul", 
                     "*reacts with weeb emote*",
                     "<:zoomeyes:390046883281633290>", 
@@ -44,7 +44,12 @@ async def on_message(msg):
     if msg.content.startswith("spider ") or msg.content.startswith("Spider ") or msg.content.startswith("Daddy ") or msg.content.startswith("daddy "):
         if not msg.author.bot:
             if not wew.command:
-                await msg.channel.send(random.choice(spood.responses).format(msg.author))
+                owo = random.choice([x.clean_content for x in list(pupper._connection._messages) if x.author.id == 102845358677176320])
+                if not owo == []:
+                  aaaa = random.choice([owo, spood.responses])
+                else:
+                  aaaa = spood.responses
+                await msg.channel.send(random.choice(aaaa).format(msg.author))
             else:
                 await spood.process_commands(msg)
         else:
