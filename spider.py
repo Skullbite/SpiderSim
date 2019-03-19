@@ -44,7 +44,7 @@ async def on_message(msg):
     if msg.content.startswith("spider ") or msg.content.startswith("Spider ") or msg.content.startswith("Daddy ") or msg.content.startswith("daddy "):
         if not msg.author.bot:
             if not wew.command:
-                owo = random.choice([x.clean_content for x in list(pupper._connection._messages) if x.author.id == 102845358677176320])
+                owo = random.choice([x.clean_content for x in list(spood._connection._messages) if x.author.id == 102845358677176320])
                 if not owo == []:
                   aaaa = random.choice([owo, spood.responses])
                 else:
