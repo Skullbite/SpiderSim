@@ -8,6 +8,34 @@ import time
 prefixes = ["spider ", "Spider ", "daddy ", "Daddy "]
 spood = commands.Bot(command_prefix=commands.when_mentioned_or(*prefixes))
 spood.remove_command("help")
+# spood.responses = [
+#                    "henlo", 
+#                    "is joke", 
+#                    "a", 
+#                    "stop talking about it please", 
+#                    "i'm not lurking", 
+#                    "lul", 
+#                    "*reacts with weeb emote*",
+#                    "<:zoomeyes:390046883281633290>", 
+#                    "that is the essential question",
+#                    "is this drama", 
+#                    "oh bOi",
+#                    "no", 
+#                    "yes", 
+#                    "maybe",
+#                    "how old are u 😄",
+#                    "Check in <#325648177178869760> idk",
+#                    "w0t",
+#                    "i see lol",
+#                    "lol sure.",
+#                    "this isnt the mee6 support server",
+#                    "java >>> *",
+#                    "doesn't everyone?",
+#                    "{0.mention} tf did you just say",
+#                    "like i said",
+#                    "Haha funny jokes",
+#                    "fucking hell"
+# ]
 spood.responses = [
                     "-m {0.mention} unfunny joke",
                     "-b {0.mention} skid" 
